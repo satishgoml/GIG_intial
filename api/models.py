@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Date, ForeignKey, DateTime, func
+from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, func
 from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
@@ -13,8 +13,8 @@ class UserInfo(Base):
     phone = Column('phone', String, nullable=False)
     email = Column('email', String, nullable=False)
     hashed_password = Column('hashed_password', String, nullable=False)
-    created_on_date = Column('created_on', Date, default=func.now(), nullable=False)
-    updated_on_date = Column('updated_on', Date, default=func.now(), nullable=False)
+    created_on_date = Column('created_on', DateTime, default=func.now(), nullable=False)
+    updated_on_date = Column('updated_on', DateTime, default=func.now(), nullable=False)
 
 
 class Designation(Base):
@@ -42,8 +42,8 @@ class UserCareerInfo(Base):
     work_type = Column('work_type', String)
     cv = Column('cv', String)
     user_info_id = Column('user_info_id', Integer, ForeignKey('user_info.id'))
-    created_on = Column('created_on', Date, default=func.now(), nullable=False)
-    updated_on = Column('updated_on', Date, default=func.now(), nullable=False)
+    created_on = Column('created_on', DateTime, default=func.now(), nullable=False)
+    updated_on = Column('updated_on', DateTime, default=func.now(), nullable=False)
 
 
 class UserSkillSet(Base):
@@ -53,5 +53,5 @@ class UserSkillSet(Base):
     skill_id = Column('skill_id', Integer, ForeignKey('skill.id'))
     yrs_of_experience = Column('yrs_of_experience', Integer, nullable=False)
     user_career_info_id = Column('user_career_info_id', Integer, ForeignKey('user_career_info.id'))
-    created_on = Column('created_on', Date, default=func.now(), nullable=False)
-    updated_on = Column('updated_on', Date, default=func.now(), nullable=False)
+    created_on = Column('created_on', DateTime, default=func.now(), nullable=False)
+    updated_on = Column('updated_on', DateTime, default=func.now(), nullable=False)
