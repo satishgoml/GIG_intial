@@ -1,7 +1,2 @@
-# Ignore the venv directory
-venv/
-
-# Ignore __pycache__ directories within api and its subdirectories
-api/__pycache__/
-
-
+venv
+__pycache__
